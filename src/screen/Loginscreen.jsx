@@ -15,9 +15,13 @@ import { useNavigation } from '@react-navigation/native';
 const Loginscreen = () => {
   const [secureText, setSecuretext] = useState(true);
 
-  const navigate = useNavigation()
+  const navigation = useNavigation()
   const handleGOback=()=>{
-    navigate.goBack();
+    navigation.goBack();
+  }
+
+  const handleSignup=()=>{
+    navigation.navigate("SignUp")
   }
   return (
     <View style={styles.container}>
@@ -79,7 +83,9 @@ const Loginscreen = () => {
         </TouchableOpacity>
         <View style={styles.footerCOntainer}>
           <Text style={styles.accountText}>Don't have account?</Text>
+          <TouchableOpacity onPress={handleSignup}>
           <Text style={styles.SignUpText}>SIgnUp</Text>
+          </TouchableOpacity>
         </View>
       </View>
       {/* Form End */}
